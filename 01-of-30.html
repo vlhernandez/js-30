@@ -3,15 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>Day 01 of 30</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700" rel="stylesheet">
+    <style>
+      body {
+        font: 2em/2 "nutino sans", sans-serif;
+      }
+      .keys {
+        align-content: center;
+        display: flex;
+        margin-right: auto;
+        margin-left: auto;
+        width: 20em;
+      }
+      p[data-key] {
+        width: 2em;
+        height: 2em;
+        text-align: center;
+        transition: all 2s;
+      }
+      .highlight {
+        border: 1px solid pink;
+      }
+    </style>
   </head>
   <body>
-    <p data-key:"65">a</p>
-    <p data-key:"83">s</p>
-    <p data-key:"68">d</p>
-    <p data-key:"70">f</p>
-    <p data-key:"74">j</p>
-    <p data-key:"75">k</p>
-    <p data-key:"76">l</p>
-    <p data-key:"186">;</p>
+    <div class="keys">
+      <p data-key="65">a</p>
+      <p data-key="83">s</p>
+      <p data-key="68">d</p>
+      <p data-key="70">f</p>
+      <p data-key="74">j</p>
+      <p data-key="75">k</p>
+      <p data-key="76">l</p>
+      <p data-key="186">;</p>
+    </div>
+  <script>
+    function consoleIt(e) {
+      const keyCode = document.querySelector(`[data-key="${e.keyCode}"]`)
+      if(keyCode) {
+        keyCode.classList.add("highlight")
+      }
+      return;
+    }
+    document.addEventListener( 'keydown', consoleIt );
+  </script>
   </body>
 </html>
