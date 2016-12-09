@@ -18,11 +18,13 @@
       p[data-key] {
         width: 2em;
         height: 2em;
+        margin-right:.25em;
         text-align: center;
-        transition: all 2s;
+        border: 1px solid #eee;
+        transition: all 1s;
       }
-      .highlight {
-        border: 1px solid pink;
+      p.highlight {
+        border: 3px solid pink;
       }
     </style>
   </head>
@@ -38,14 +40,21 @@
       <p data-key="186">;</p>
     </div>
   <script>
-    function consoleIt(e) {
+    function keyPress(e) {
       const keyCode = document.querySelector(`[data-key="${e.keyCode}"]`)
       if(keyCode) {
         keyCode.classList.add("highlight")
       }
       return;
     }
-    document.addEventListener( 'keydown', consoleIt );
+    document.addEventListener( 'keydown', keyPress );
+    const keys = document.querySelectorAll(".keys p");
+    keys.forEach( key => {
+      key.addEventListener( 'transitionend', function(e) {
+        this.classList.remove("highlight");
+      });
+    })
+
   </script>
   </body>
 </html>
