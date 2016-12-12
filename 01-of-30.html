@@ -20,11 +20,12 @@
         height: 2em;
         margin-right:.25em;
         text-align: center;
-        border: 1px solid #eee;
-        transition: all 1s;
+        border: 3px solid #eee;
+        transition: all .7s;
       }
       p.highlight {
-        border: 3px solid pink;
+        border-color: #ff9894;
+        transform: scale(1.1);
       }
     </style>
   </head>
@@ -39,13 +40,18 @@
       <p data-key="76">l</p>
       <p data-key="186">;</p>
     </div>
+    <audio data-key="65" src="audio\cowbell.mp3"></audio>
   <script>
     function keyPress(e) {
       const keyCode = document.querySelector(`[data-key="${e.keyCode}"]`)
       if(keyCode) {
         keyCode.classList.add("highlight")
       }
+      playSound(keyCode);
       return;
+    }
+    function playSound( code ) {
+      document.querySelector("audio[data-key="${}"]")  
     }
     document.addEventListener( 'keydown', keyPress );
     const keys = document.querySelectorAll(".keys p");
