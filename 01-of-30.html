@@ -7,7 +7,13 @@
     <style>
       body {
         font: 2em/2 "nutino sans", sans-serif;
+        color: #fff;
+        background-image: url("https://images.unsplash.com/photo-1461784121038-f088ca1e7714");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
       }
+
       .keys {
         align-content: center;
         display: flex;
@@ -15,20 +21,25 @@
         margin-left: auto;
         width: 20em;
       }
+
       p[data-key] {
         width: 2em;
         height: 2em;
         margin-right:.25em;
         text-align: center;
-        border: 3px solid #eee;
-        transition: all .7s;
+        border: 3px solid #fff;
+        background-color: hsla(21, 5%, 85%, .41);
+        transition: all .3s;
       }
+
       p.highlight {
-        border-color: #ff9894;
+        border-color: rgb(250,87,0);
+        color: rgb(250,87,0);
         transform: scale(1.1);
       }
     </style>
   </head>
+
   <body>
     <div class="keys">
       <p data-key="65">a</p>
@@ -40,19 +51,29 @@
       <p data-key="76">l</p>
       <p data-key="186">;</p>
     </div>
-    <audio data-key="65" src="audio\cowbell.mp3"></audio>
+    <audio data-key="65" src="audio\boom.wav"></audio>
+    <audio data-key="83" src="audio\clap.wav"></audio>
+    <audio data-key="68" src="audio\hihat.wav"></audio>
+    <audio data-key="70" src="audio\kick.wav"></audio>
+    <audio data-key="74" src="audio\openhat.wav"></audio>
+    <audio data-key="75" src="audio\ride.wav"></audio>
+    <audio data-key="76" src="audio\snare.wav"></audio>
+    <audio data-key="186" src="audio\tink.wav"></audio>
+
   <script>
     function keyPress(e) {
       const keyCode = document.querySelector(`[data-key="${e.keyCode}"]`)
       if(keyCode) {
         keyCode.classList.add("highlight")
       }
-      playSound(keyCode);
+      playSound(e.keyCode);
       return;
     }
     function playSound( code ) {
-      document.querySelector("audio[data-key="${}"]")  
+      const sound = document.querySelector(`audio[data-key="${code}"]`);
+      sound.play();
     }
+
     document.addEventListener( 'keydown', keyPress );
     const keys = document.querySelectorAll(".keys p");
     keys.forEach( key => {
