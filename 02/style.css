@@ -1,8 +1,15 @@
 .clock {
+  padding: 20px;
   height: 200px;
   width: 200px;
   border-radius: 50%;
   border: solid 3px blue;
+  margin: 0 auto;
+}
+
+.clock-face {
+  height: 100%;
+  width: 100%;
   position: relative;
 }
 
@@ -14,4 +21,8 @@
   background-color: black;
   transform-origin: 100%;
   transform: rotate(90deg);
+}
+
+.second-hand {
+  background-color: red;
 }
