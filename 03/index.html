@@ -2,21 +2,29 @@
 <html>
   <head>
     <title>03 of 30</title>
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Overpass+Mono" rel="stylesheet">
+
     <style>
       :root {
         --spacing: 10px;
         --blur: 5px;
         --base: #FF476C;
       }
+      html {
+        font-family: 'Cabin', sans-serif;
+      }
+      label {
+        font-family: 'Overpass Mono', monospace;
+      }
     </style>
   </head>
   <body>
     <h1>Update CSS Variables with JS</h1>
-    <h2>Spacing:</h2>
+    <label>Spacing:</label>
     <input type="range" min="0" max="200" value="10px"/>
-    <h2>Blur:</h2>
+    <label>Blur:</label>
     <input type="range" min="0" max="100" value="5px"/>
-    <h3>Base Color</h3>
+    <label>Base Color</label>
     <input type="color" value="#FF4765"/>
 
     <script>
